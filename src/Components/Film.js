@@ -1,9 +1,7 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import {Container, Paper} from "@mui/material";
 import {useEffect, useState} from "react";
+import Grid from '@mui/material/Grid';
 
 export default function Film() {
     const paperStyle={padding:'50px 20px', width: 600, margin:'20px auto'}
@@ -27,7 +25,7 @@ export default function Film() {
     }
 
     useEffect(()=>{
-        fetch("http://localhost:8080/film/GetById?id=" + filmlist.id)
+        fetch("http://localhost:8080/film/" + film.id)
     })
 
     useEffect(()=>{
@@ -42,7 +40,7 @@ export default function Film() {
     return (
 
         <Container>
-            <Paper elevation={3} style={paperStyle}>
+            {/*<Paper elevation={3} style={paperStyle}>
                 <Box
                     component="form"
                     sx={{
@@ -61,19 +59,21 @@ export default function Film() {
                 </Box>
                 <Button variant="contained" onClick={handleClick}>submit</Button>
 
-            </Paper>
+            </Paper>*/}
 
-            <Paper elevation={3} style={paperStyle}>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
                 {filmlist.map((filmlist)=>(
+                    <Grid item xs={3}>
                         <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={filmlist.id}>
                             id:{filmlist.id}<br/>
-                            student:{filmlist.name}<br/>
+                            film:{filmlist.name}<br/>
                             length:{filmlist.length}<br/>
                         </Paper>
+                    </Grid>
                     )
                 )}
-                <Button variant="contained" onClick={handleClick}>get</Button>
-            </Paper>
+            </Grid>
+
         </Container>
 
     );
