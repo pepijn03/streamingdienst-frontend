@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {Container, Paper} from "@mui/material";
+import {Container, Paper, TextField} from "@mui/material";
 import {useEffect, useState} from "react";
-import Grid from '@mui/material/Grid';
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 export default function Film() {
     const paperStyle={padding:'50px 20px', width: 600, margin:'20px auto'}
 
     const[name,setName]=useState( '')
     const[length,setlength]=useState('')
-    const[filmlist,setFilmlist]=useState([])
-    const[film, setFilm]=useState('')
+
 
     const handleClick=(e)=> {
         e.preventDefault()
@@ -20,27 +20,14 @@ export default function Film() {
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(film)}
         ).then(()=>{
-            console.log("new filmlist added")
+            console.log("new film added")
         })
     }
-
-    useEffect(()=>{
-        fetch("http://localhost:8080/film/" + film.id)
-    })
-
-    useEffect(()=>{
-        fetch("http://localhost:8080/film/getAll")
-            .then(res=>res.json())
-            .then((result)=>{
-                setFilmlist(result);
-            })
-    },[])
-
 
     return (
 
         <Container>
-            {/*<Paper elevation={3} style={paperStyle}>
+            <Paper elevation={3} style={paperStyle}>
                 <Box
                     component="form"
                     sx={{
@@ -59,20 +46,7 @@ export default function Film() {
                 </Box>
                 <Button variant="contained" onClick={handleClick}>submit</Button>
 
-            </Paper>*/}
-
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
-                {filmlist.map((filmlist)=>(
-                    <Grid item xs={3}>
-                        <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={filmlist.id}>
-                            id:{filmlist.id}<br/>
-                            film:{filmlist.name}<br/>
-                            length:{filmlist.length}<br/>
-                        </Paper>
-                    </Grid>
-                    )
-                )}
-            </Grid>
+            </Paper>
 
         </Container>
 
