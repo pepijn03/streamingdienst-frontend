@@ -18,7 +18,7 @@ function App() {
             <ButtonAppBar/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
-                <Route path='/watch' element={<Film/>}/>
+                <Route path='/watch/:id' element={<Film/>}/>
             </Routes>
         </div>
     </Router>

@@ -32,7 +32,7 @@ export default function Home() {
                 {Films.map((film)=>(
                         <Grid item xs={3}>
                                 <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film.id}>
-                                    <Link onClick={addFilmIdToLocal(film.id) } to='watch' >
+                                    <Link /*onClick={addFilmIdToLocal(film.id) }*/ to={`watch/${film.id}`}>
 
                                     id:{film.id}<br/>
                                     film:{film.name}<br/>
