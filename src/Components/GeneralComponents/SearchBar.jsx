@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import Button from "@mui/material/Button";
 
 
 const SearchBar = () => {
@@ -41,6 +42,10 @@ const SearchBar = () => {
                     <option>{film.name} </option>
                 ))}
             </datalist>
+
+            <Link to=>
+
+            </Link>
         </div>
     );
 }
