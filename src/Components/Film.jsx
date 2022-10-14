@@ -3,7 +3,6 @@ import {Container, Paper, TextField} from "@mui/material";
 import {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import LocalStorageManager from '../../src/Service/LocalStorageManager';
 import {
     BrowserRouter as Router,
     Link,

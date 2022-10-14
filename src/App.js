@@ -18,9 +18,9 @@ function App() {
         <div className="App">
             <ButtonAppBar/>
             <Routes>
-                <Route path='/' element={<Home/>}/>
-                <Route path='/watch/:id' element={<Film/>}/>
-                <Route path='/serch/:query' element={<SearchResult/>}/>
+                <Route exact path='/' element={<Home/>}/>
+                <Route exact path='/watch/:id' element={<Film/>}/>
+                <Route exact path='/search/:query' element={<SearchResult/>}/>
             </Routes>
         </div>
     </Router>

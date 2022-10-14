@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Container, Paper} from "@mui/material";
 import {useEffect, useState} from "react";
-import LocalStorageManager from '../../Service/LocalStorageManager';
 import Grid from "@mui/material/Grid";
 import {Link, useParams} from 'react-router-dom'
 
@@ -11,7 +10,7 @@ export default function Home() {
 
     useEffect(()=>{
         console.log(Films)
-        fetch("localhost:8080/film/search/" + query)
+        fetch("http://localhost:8080/film/search/" + query)
             .then(res=>res.json())
             .then((result)=>{
                 setFilms(result);

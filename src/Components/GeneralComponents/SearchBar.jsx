@@ -1,11 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import Button from "@mui/material/Button";
-
+import { Link } from 'react-router-dom'
 
 const SearchBar = () => {
     const [searchInput, setSearchInput] = useState("")
 
     const[Films,setFilms]=useState([])
+
+    function getquery(){
+        return searchInput;
+    }
+
 
     useEffect(()=>{
         console.log(Films)
@@ -43,10 +47,14 @@ const SearchBar = () => {
                 ))}
             </datalist>
 
-            <Link to=>
-
-            </Link>
+            <button>
+                <Link to={`search/${getquery()}`}>
+                    submit
+                </Link>
+            </button>
         </div>
+
+
     );
 }
 export default SearchBar;
