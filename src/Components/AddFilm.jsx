@@ -15,7 +15,7 @@ export default function Film() {
         e.preventDefault()
         const film = {name, length}
         console.log(film)
-        fetch("http://localhost:8080/film/add",{
+        fetch("http://localhost:8080/films/add",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(film)}

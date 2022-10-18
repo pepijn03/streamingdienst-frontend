@@ -23,7 +23,7 @@ export default function Film() {
         console.log(film)
 /*        var id = LocalStorageManager.GetFilmId();*/
 
-        fetch("http://localhost:8080/film/" + id)
+        fetch("http://localhost:8080/films/" + id)
             .then(res=>res.json())
             .then((result)=>{
                 setFilm(result);
