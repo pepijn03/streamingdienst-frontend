@@ -7,21 +7,22 @@ import { Link } from 'react-router-dom'
 
 export default function Home() {
     const[Films,setFilms]=useState([])
-
-    useEffect(()=>{
-        console.log(Films)
-        fetch("http://localhost:8080/home/")
-            .then(res=>res.json())
-            .then((result)=>{
-                setFilms(result);
-            })
-    },[])
+    /*
+        useEffect(()=>{
+            console.log(Films)
+            fetch("http://localhost:8080/home/")
+                .then(res=>res.json())
+                .then((result)=>{
+                    setFilms(result);
+                })
+        },[])*/
+    console.log(this.props)
 
     return (
 
         <Container>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
-                {Films.map((film)=>(
+                {this.props.data.map((film)=>(
                         <Grid item xs={3}>
                                 <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film.id}>
                                     <Link to={`watch/${film.id}`}>

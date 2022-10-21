@@ -3,6 +3,7 @@ import {Container, Paper} from "@mui/material";
 import {useEffect, useState} from "react";
 import Grid from "@mui/material/Grid";
 import {Link, useParams} from 'react-router-dom'
+import FilmOverview from "./HomeComponents/FilmOverview";
 
 export default function Home() {
     const[Films,setFilms]=useState([])
@@ -20,21 +21,7 @@ export default function Home() {
     return (
 
         <Container>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
-                {Films.map((film)=>(
-                        <Grid item xs={3}>
-                            <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film.id}>
-                                <Link to={`../../watch/${film.id}`}>
-
-                                    id:{film.id}<br/>
-                                    film:{film.name}<br/>
-                                    length:{film.length}<br/>
-                                </Link>
-                            </Paper>
-                        </Grid>
-                    )
-                )}
-            </Grid>
+            <FilmOverview data={Films}/>
         </Container>
 
     );
