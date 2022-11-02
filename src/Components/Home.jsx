@@ -20,7 +20,7 @@ export default function Home() {
 
     return (
         <Container>
-            <FilmOverview data={Films}/>
+            <FilmOverview films={Films}/>
         </Container>
 
     );

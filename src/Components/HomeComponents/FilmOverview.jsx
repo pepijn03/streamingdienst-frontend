@@ -1,12 +1,21 @@
 import * as React from 'react';
 import {Container, Paper} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import Grid from "@mui/material/Grid";
 import { Link } from 'react-router-dom'
 
 
 export default function Home() {
     const[Films,setFilms]=useState([])
+
+    const Props = useCallback(() => {
+
+    }, [])
+
+    useEffect(() => {
+        setFilms(this.props)
+    }, [Props])
+
     /*
         useEffect(()=>{
             console.log(Films)
@@ -16,13 +25,15 @@ export default function Home() {
                     setFilms(result);
                 })
         },[])*/
-    console.log(this.props)
+
+
+    //console.log(this.props.Films)
 
     return (
 
         <Container>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
-                {this.props.data.map((film)=>(
+                {Films.map((film)=>(
                         <Grid item xs={3}>
                                 <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film.id}>
                                     <Link to={`watch/${film.id}`}>
