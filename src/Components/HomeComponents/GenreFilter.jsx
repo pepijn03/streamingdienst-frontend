@@ -1,42 +1,52 @@
 import * as React from 'react';
 import {Container, Paper, TextField} from "@mui/material";
 import {useEffect, useState} from "react";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import {
-    BrowserRouter as Router,
-    Link,
-    Route,
-    Routes,
-    useParams,
-} from "react-router-dom";
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+
 
 
 export default function GenreFilter() {
-    const paperStyle={padding:'50px 20px', width: 600, margin:'20px auto'}
-    const { id } = useParams();
-    const[genres,setGenres]=useState( '')
+    const[genres,setGenres]=useState( [])
 
 
 
     useEffect(()=>{
         console.log(genres)
-        fetch("http://localhost:8080/films/genres" + id)
+        fetch("http://localhost:8080/films/genres")
             .then(res=>res.json())
             .then((result)=>{
                 setGenres(result);
             })
-    },)
+    },[])
 
 
     return (
-
         <Container>
-            <Paper elevation={3} style={paperStyle}>
-                {film.id}
-                {film.name}
+        <PopupState variant="popover" popupId="demo-popup-menu">
+            {(popupState) => (
+                <React.Fragment>
+                    <Button variant="contained" {...bindTrigger(popupState)}>
+                        genres
+                    </Button>
+                    <Menu {...bindMenu(popupState)}>
+                        {genres.map((genre)=>(
+                                <MenuItem key={genre.id}>
+                                    <input type={"radio"} value={genre.id} name={genre}/> {genre.name}
+                                </MenuItem>
+                            )
+                        )}
+                    </Menu>
+                </React.Fragment>
+            )}
+        </PopupState>
 
-            </Paper>
+
+
+
+
 
         </Container>
 

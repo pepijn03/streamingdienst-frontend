@@ -2,11 +2,12 @@ import * as React from 'react';
 import {Container} from "@mui/material";
 
 import FilmOverview from "./HomeComponents/FilmOverview";
+import GenreFilter from "./HomeComponents/GenreFilter";
 import {useEffect, useState} from "react";
 
 
 export default function Home() {
-    const[Films,setFilms]=useState([])
+    /*const[Films,setFilms]=useState([])
 
     useEffect(()=>{
         console.log(Films)
@@ -15,12 +16,13 @@ export default function Home() {
             .then((result)=>{
                 setFilms(result);
             })
-    },[])
+    },[])*/
 
 
     return (
         <Container>
-            <FilmOverview films={Films}/>
+            <GenreFilter/>
+            <FilmOverview/>
         </Container>
 
     );

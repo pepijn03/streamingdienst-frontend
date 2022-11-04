@@ -8,15 +8,8 @@ import { Link } from 'react-router-dom'
 export default function Home() {
     const[Films,setFilms]=useState([])
 
-    const Props = useCallback(() => {
 
-    }, [])
 
-    useEffect(() => {
-        setFilms(this.props)
-    }, [Props])
-
-    /*
         useEffect(()=>{
             console.log(Films)
             fetch("http://localhost:8080/home/")
@@ -24,10 +17,10 @@ export default function Home() {
                 .then((result)=>{
                     setFilms(result);
                 })
-        },[])*/
+        },[])
 
+    
 
-    //console.log(this.props.Films)
 
     return (
 
