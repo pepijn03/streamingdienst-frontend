@@ -10,6 +10,7 @@ import {
     Routes,
     useParams,
 } from "react-router-dom";
+import CommentInput from "./FilmComponenets/CommentInput";
 
 
 export default function Film() {
@@ -28,7 +29,7 @@ export default function Film() {
             .then((result)=>{
                 setFilm(result);
             })
-    },)
+    },[])
 
 
     return (
@@ -39,6 +40,7 @@ export default function Film() {
                 {film.name}
 
             </Paper>
+            <CommentInput/>
 
         </Container>
 
