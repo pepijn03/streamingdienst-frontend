@@ -12,30 +12,31 @@ class CommentView extends Component{
         this.state ={
             Comments:[]
         }
-        //this.setState({ Comments: this.props.comments });
     }
 
     componentDidMount() {
         this.setState({ Comments: this.props.Comments });
     }
 
-
     getComments(){
         return this.state.Comments;
     }
+
+    /*like(commentid){
+
+    }*/
 
     render(){
         return(
             <Container>
                 <ul>
                     {this.getComments().map((comment)=>(
-                        <li key={comment}>
+                        <li /*key={comment}*/>
                             {comment.text}
+                            {/*<button onClick={comment.id}> like </button>
+                            <button onClick={}> dislike </button>*/}
                         </li>
-                        )
-                    )
-                    }
-
+                        ))}
                     <div >
 
                     </div>

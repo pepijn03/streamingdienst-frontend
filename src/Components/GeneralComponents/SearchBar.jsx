@@ -10,7 +10,6 @@ const SearchBar = () => {
         return searchInput;
     }
 
-
     useEffect(()=>{
         console.log(Films)
         fetch("http://localhost:8080/home/")
@@ -43,7 +42,7 @@ const SearchBar = () => {
 
             <datalist id={"filmlist"}>
                 {Films.map((film)=>(
-                    <option key={film}>{film.name} </option>
+                    <option /*key={film}*/>{film.name} </option>
                 ))}
             </datalist>
 
