@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Container, Paper} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import CommentInput from "./FilmComponenets/CommentInput";
 import CommentView from "./FilmComponenets/CommentView";
@@ -14,7 +14,7 @@ export default function Film() {
 
 
 
-    useEffect(()=>{
+    useEffect = useCallback(()=>{
         console.log(film)
 
         fetch("http://localhost:8080/films/" + id)
@@ -23,7 +23,7 @@ export default function Film() {
                 setFilm(result);
                 setComments(result.Comments)
             })
-    },[Comments, film, id])
+    },[film, id])
 
 
     return (

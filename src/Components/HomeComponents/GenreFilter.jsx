@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Container} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -13,7 +13,7 @@ export default function GenreFilter() {
 
 
 
-    useEffect(()=>{
+    useEffect = useCallback(()=>{
         console.log(genres)
         fetch("http://localhost:8080/films/genres")
             .then(res=>res.json())

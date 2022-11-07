@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 
 const SearchBar = () => {
@@ -10,7 +10,7 @@ const SearchBar = () => {
         return searchInput;
     }
 
-    useEffect(()=>{
+    useEffect = useCallback(()=>{
         console.log(Films)
         fetch("http://localhost:8080/home/")
             .then(res=>res.json())

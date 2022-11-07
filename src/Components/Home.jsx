@@ -3,20 +3,20 @@ import {Container} from "@mui/material";
 
 import FilmOverview from "./GeneralComponents/FilmOverview";
 import GenreFilter from "./HomeComponents/GenreFilter";
-import {useEffect, useState} from "react";
+import {useEffect, useState, useCallback } from "react";
 
 
 export default function Home() {
     const[Films,setFilms]=useState([])
 
-    useEffect(()=>{
+    useEffect = useCallback(()=>{
         console.log(Films)
         fetch("http://localhost:8080/home/")
             .then(res=>res.json())
             .then((result)=>{
                 setFilms(result);
             })
-    },[Films, ])
+    },[Films])
 
 
     return (
