@@ -1,15 +1,50 @@
+
 import * as React from 'react';
 import {Container} from "@mui/material";
+import {Component} from "react";
 
-export default function CommentView (){
 
-    function addComment(){
+class CommentView extends Component{
 
+    constructor(props){
+        super(props);
+        console.log(this.props);
+        this.state ={
+            Comments:[]
+        }
+        //this.setState({ Comments: this.props.comments });
     }
 
-    return(
-        <Container>
+    componentDidMount() {
+        this.setState({ Comments: this.props.Comments });
+    }
 
-        </Container>
-    );
+
+    getComments(){
+        return this.state.Comments;
+    }
+
+    render(){
+        return(
+            <Container>
+                <ul>
+                    {this.getComments().map((comment)=>(
+                        <li key={comment}>
+                            {comment.text}
+                        </li>
+                        )
+                    )
+                    }
+
+                    <div >
+
+                    </div>
+                </ul>
+
+            </Container>
+        );
+    }
+
 }
+
+export default CommentView;

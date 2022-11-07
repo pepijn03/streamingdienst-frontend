@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Container, Paper} from "@mui/material";
-import {useCallback, useEffect, useState, Component} from "react";
+import {Component} from "react";
 import Grid from "@mui/material/Grid";
 import { Link } from 'react-router-dom'
 
 
-class Home extends Component {
+class FilmOverview extends Component {
 
 
     constructor(props){
@@ -14,6 +14,10 @@ class Home extends Component {
         this.state ={
             Films:[]
         }
+
+    }
+
+    componentDidMount() {
         this.setState({ Films: this.props.films });
     }
 
@@ -31,9 +35,8 @@ class Home extends Component {
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
                     {this.getFilms().map((film)=>(
                             <Grid item xs={3}>
-                                <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film.id}>
+                                <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film}>
                                     <Link to={`watch/${film.id}`}>
-
                                         id:{film.id}<br/>
                                         film:{film.name}<br/>
                                         length:{film.length}<br/>
@@ -49,4 +52,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default FilmOverview;

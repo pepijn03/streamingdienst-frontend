@@ -1,8 +1,7 @@
 import * as React from 'react';
-import {Container, Paper} from "@mui/material";
+import {Container} from "@mui/material";
 import {useEffect, useState} from "react";
-import Grid from "@mui/material/Grid";
-import {Link, useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import FilmOverview from "./GeneralComponents/FilmOverview";
 
 export default function Home() {

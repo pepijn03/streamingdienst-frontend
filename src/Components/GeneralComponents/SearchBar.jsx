@@ -18,7 +18,7 @@ const SearchBar = () => {
             .then((result)=>{
                 setFilms(result);
             })
-    },[])
+    },[Films])
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -43,7 +43,7 @@ const SearchBar = () => {
 
             <datalist id={"filmlist"}>
                 {Films.map((film)=>(
-                    <option>{film.name} </option>
+                    <option key={film}>{film.name} </option>
                 ))}
             </datalist>
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Container, Paper, TextField} from "@mui/material";
+import {Container} from "@mui/material";
 import {useEffect, useState} from "react";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -20,7 +20,7 @@ export default function GenreFilter() {
             .then((result)=>{
                 setGenres(result);
             })
-    },[])
+    },[genres])
 
 
     return (

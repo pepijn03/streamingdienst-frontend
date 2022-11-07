@@ -16,7 +16,7 @@ export default function Home() {
             .then((result)=>{
                 setFilms(result);
             })
-    },[Films],[])
+    },[Films, ])
 
 
     return (

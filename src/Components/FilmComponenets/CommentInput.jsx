@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Container, TextField} from "@mui/material";
 import {useState} from "react";
-import button from "bootstrap/js/src/button";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
@@ -13,7 +12,7 @@ export default function CommentInput (){
 
     const handleClick=(e)=> {
         e.preventDefault()
-        const comment = {text, likes, film: id = 1}
+        const comment = {text, likes}
         console.log(comment)
         fetch("http://localhost:8080/comments/add",{
             method:"POST",
