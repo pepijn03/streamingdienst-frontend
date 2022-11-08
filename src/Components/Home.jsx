@@ -9,14 +9,14 @@ import {useEffect, useState, useCallback } from "react";
 export default function Home() {
     const[Films,setFilms]=useState([])
 
-    useEffect = useCallback(()=>{
+    useEffect (()=>{
         console.log(Films)
         fetch("http://localhost:8080/home/")
             .then(res=>res.json())
             .then((result)=>{
                 setFilms(result);
             })
-    },[Films])
+    },[])
 
 
     return (

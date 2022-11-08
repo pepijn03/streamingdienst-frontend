@@ -6,18 +6,14 @@ const SearchBar = () => {
 
     const[Films,setFilms]=useState([])
 
-    function getquery(){
-        return searchInput;
-    }
-
-    useEffect = useCallback(()=>{
+    useEffect(()=>{
         console.log(Films)
         fetch("http://localhost:8080/home/")
             .then(res=>res.json())
             .then((result)=>{
                 setFilms(result);
             })
-    },[Films])
+    },[])
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -28,6 +24,10 @@ const SearchBar = () => {
         Films.filter((film) => {
             return film.name.match(searchInput);
         });
+    }
+
+    function getquery(){
+        return searchInput;
     }
 
     return(

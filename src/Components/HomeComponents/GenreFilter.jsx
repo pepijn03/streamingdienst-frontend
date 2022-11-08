@@ -11,16 +11,14 @@ import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 export default function GenreFilter() {
     const[genres,setGenres]=useState( [])
 
-
-
-    useEffect = useCallback(()=>{
+    useEffect(()=>{
         console.log(genres)
         fetch("http://localhost:8080/films/genres")
             .then(res=>res.json())
             .then((result)=>{
                 setGenres(result);
             })
-    },[genres])
+    },[])
 
 
     return (

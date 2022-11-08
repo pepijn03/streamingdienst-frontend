@@ -1,39 +1,18 @@
 import * as React from 'react';
 import {Container, Paper} from "@mui/material";
-import {Component} from "react";
+import {Component, useEffect} from "react";
 import Grid from "@mui/material/Grid";
 import { Link } from 'react-router-dom'
 
 
-class FilmOverview extends Component {
+const FilmOverview= (props) => {
 
-
-    constructor(props){
-        super(props);
-        console.log(this.props);
-        this.state ={
-            Films:[]
-        }
-
-    }
-
-    componentDidMount() {
-        this.setState({ Films: this.props.films });
-    }
-
-
-    getFilms(){
-        return this.state.Films;
-    }
-
-
-    render() {
 
         return (
 
             <Container>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
-                    {this.getFilms().map((film)=>(
+                    {props.films.map((film)=>(
                             <Grid item xs={3}>
                                 <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} /*key={film}*/>
                                     <Link to={`watch/${film.id}`}>
@@ -49,7 +28,7 @@ class FilmOverview extends Component {
             </Container>
 
         );
-    }
+
 }
 
 export default FilmOverview;
