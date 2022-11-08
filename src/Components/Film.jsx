@@ -18,7 +18,7 @@ export default function Film() {
             .then(res=>res.json())
             .then((result)=>{
                 setFilm(result);
-                setComments(result.Comments)
+                setComments(result.comments)
             })
     },[])
 
@@ -31,7 +31,7 @@ export default function Film() {
                 {film.name}
             </Paper>
             <CommentInput/>
-            <CommentView Comments = {Comments}/>
+            <CommentView  comments={Comments}/>
 
         </Container>
 

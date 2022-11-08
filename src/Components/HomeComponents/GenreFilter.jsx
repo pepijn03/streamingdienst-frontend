@@ -31,7 +31,7 @@ export default function GenreFilter() {
                     </Button>
                     <Menu {...bindMenu(popupState)}>
                         {genres.map((genre)=>(
-                                <MenuItem /*key={genre.id}*/>
+                                <MenuItem key={genre.id}>
                                     <input type={"radio"} value={genre.id} name={genre}/> {genre.name}
                                 </MenuItem>
                             )

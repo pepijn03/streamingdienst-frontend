@@ -14,8 +14,8 @@ const FilmOverview= (props) => {
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
                     {props.films.map((film)=>(
                             <Grid item xs={3}>
-                                <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} /*key={film}*/>
-                                    <Link to={`watch/${film.id}`}>
+                                <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film.id}>
+                                    <Link to={`../watch/${film.id}`}>
                                         id:{film.id}<br/>
                                         film:{film.name}<br/>
                                         length:{film.length}<br/>

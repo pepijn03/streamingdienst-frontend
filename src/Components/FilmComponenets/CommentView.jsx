@@ -4,34 +4,13 @@ import {Container} from "@mui/material";
 import {Component} from "react";
 
 
-class CommentView extends Component{
+const CommentView = (props) =>{
 
-    constructor(props){
-        super(props);
-        console.log(this.props);
-        this.state ={
-            Comments:[]
-        }
-    }
-
-    componentDidMount() {
-        this.setState({ Comments: this.props.Comments });
-    }
-
-    getComments(){
-        return this.state.Comments;
-    }
-
-    /*like(commentid){
-
-    }*/
-
-    render(){
         return(
             <Container>
                 <ul>
-                    {this.getComments().map((comment)=>(
-                        <li /*key={comment}*/>
+                    {props.comments?.map((comment)=>(
+                        <li key={comment.id}>
                             {comment.text}
                             {/*<button onClick={comment.id}> like </button>
                             <button onClick={}> dislike </button>*/}
@@ -44,7 +23,6 @@ class CommentView extends Component{
 
             </Container>
         );
-    }
 
 }
 

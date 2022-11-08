@@ -42,7 +42,7 @@ const SearchBar = () => {
 
             <datalist id={"filmlist"}>
                 {Films.map((film)=>(
-                    <option /*key={film}*/>{film.name} </option>
+                    <option key={film.id}>{film.name} </option>
                 ))}
             </datalist>
 
