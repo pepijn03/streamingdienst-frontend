@@ -4,15 +4,15 @@ import {useState} from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
-export default function CommentInput (){
+const CommentInput = (props) =>{
     const[text,setText]=useState("")
     const[likes]=useState("0")
-    const[film]=useState("1")
+    const[film]=useState(props.filmId)
 
 
     const handleClick=(e)=> {
         e.preventDefault()
-        const comment = {text, likes}
+        const comment = {text, likes, film}
         console.log(comment)
         fetch("http://localhost:8080/comments/add",{
             method:"POST",
@@ -20,8 +20,20 @@ export default function CommentInput (){
             body:JSON.stringify(comment)}
         ).then(()=>{
             console.log("new comment added")
+            console.log('handleSubmit ran');
+
+            // clear all input values in the form
+            setText('');
         })
     }
+
+    const handleSubmit = event => {
+        console.log('handleSubmit ran');
+        event.preventDefault(); // prevent page refresh
+
+        // clear all input values in the form
+        setText('');
+    };
 
     return(
         <Container>
@@ -42,3 +54,4 @@ export default function CommentInput (){
         </Container>
     );
 }
+export default CommentInput;
