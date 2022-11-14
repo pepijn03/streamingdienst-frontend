@@ -12,8 +12,7 @@ const CommentInput = (props) =>{
 
     const handleClick=(e)=> {
         e.preventDefault()
-        const id = props.filmId;
-        const film = {id}
+        const film = props.filmId;
         const comment = {text, likes, film}
         console.log(comment)
         fetch("http://localhost:8080/comments/add",{

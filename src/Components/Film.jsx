@@ -30,7 +30,7 @@ export default function Film() {
             <Paper elevation={3} style={paperStyle}>
                 {film.name}
             </Paper>
-            <CommentInput filmId={Film.id}/>
+            <CommentInput filmId={film.id}/>
             <CommentView  comments={Comments}/>
 
         </Container>
