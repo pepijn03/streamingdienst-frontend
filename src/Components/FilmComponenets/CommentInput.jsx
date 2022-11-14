@@ -5,13 +5,15 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 const CommentInput = (props) =>{
+
     const[text,setText]=useState("")
     const[likes]=useState("0")
-    const[film]=useState(props.filmId)
 
 
     const handleClick=(e)=> {
         e.preventDefault()
+        const id = props.filmId;
+        const film = {id}
         const comment = {text, likes, film}
         console.log(comment)
         fetch("http://localhost:8080/comments/add",{
@@ -20,8 +22,7 @@ const CommentInput = (props) =>{
             body:JSON.stringify(comment)}
         ).then(()=>{
             console.log("new comment added")
-            console.log('handleSubmit ran');
-
+            console.log('handleSubmit ran')
             // clear all input values in the form
             setText('');
         })
