@@ -1,13 +1,15 @@
 
 import * as React from 'react';
 import {Container, Button} from "@mui/material";
+import {useState, memo } from "react";
 
 const CommentView = (props) =>{
+    const[liked,setLiked]=useState( false)
+    const[disliked,setDisliked]=useState(false)
 
-    const rotation={transform: [{rotate: '-180deg'}]}
 
     function updateComment(id, likes){
-        const comment = {id, likes}
+        let comment = {id, likes}
         console.log(comment)
         fetch("http://localhost:8080/comments/like",{
             method:"PUT",
@@ -20,10 +22,14 @@ const CommentView = (props) =>{
 
     const like = (id, likes) =>{
         updateComment(id, likes + 1)
+        setDisliked(false)
+        setLiked(true)
     }
 
     const dislike = (id, likes) =>{
         updateComment(id, likes - 1)
+        setDisliked(true)
+        setLiked(false)
     }
 
         return(
@@ -33,8 +39,8 @@ const CommentView = (props) =>{
                         <li key={comment.id}>
                             {comment.text}
                             {comment.likes}
-                            <Button onClick={like(comment.id, comment.likes)}> ︿ </Button>
-                            <Button  onClick={dislike(comment.id, comment.likes)}> ﹀ </Button>
+                            <Button disabled={liked} onClick={() => like(comment.id, comment.likes)}> ︿ </Button>
+                            <Button disabled={disliked} onClick={() => dislike(comment.id, comment.likes)}> ﹀ </Button>
                         </li>
                         ))}
                     <div >
@@ -47,4 +53,4 @@ const CommentView = (props) =>{
 
 }
 
-export default CommentView;
+export default memo(CommentView) ;
