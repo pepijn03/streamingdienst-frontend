@@ -11,7 +11,7 @@ export default function Home() {
 
     useEffect (()=>{
         console.log(Films)
-        fetch("http://localhost:8080/home/")
+        fetch("http://localhost:8080/films/")
             .then(res=>res.json())
             .then((result)=>{
                 setFilms(result);
@@ -21,7 +21,7 @@ export default function Home() {
 
     return (
         <Container>
-            <GenreFilter/>
+
             <FilmOverview films={Films} />
         </Container>
 
