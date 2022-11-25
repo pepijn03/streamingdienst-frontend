@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Container} from "@mui/material";
 
-import FilmOverview from "./GeneralComponents/FilmOverview";
-import GenreFilter from "./HomeComponents/GenreFilter";
+import FilmOverview from "../Components/GeneralComponents/FilmOverview";
+import GenreFilter from "../Components/HomeComponents/GenreFilter";
 import {useEffect, useState, useCallback } from "react";
 
 

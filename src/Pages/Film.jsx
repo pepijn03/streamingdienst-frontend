@@ -2,8 +2,8 @@ import * as React from 'react';
 import {Container, Paper} from "@mui/material";
 import {useCallback, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import CommentInput from "./FilmComponenets/CommentInput";
-import CommentView from "./FilmComponenets/CommentView";
+import CommentInput from "../Components/FilmComponenets/CommentInput";
+import CommentView from "../Components/FilmComponenets/CommentView";
 
 
 export default function Film() {

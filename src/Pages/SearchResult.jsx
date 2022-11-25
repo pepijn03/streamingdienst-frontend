@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Container} from "@mui/material";
 import {useEffect, useState} from "react";
 import {useParams} from 'react-router-dom'
-import FilmOverview from "./GeneralComponents/FilmOverview";
+import FilmOverview from "../Components/GeneralComponents/FilmOverview";
 
 export default function Home() {
     const[Films,setFilms]=useState([])
