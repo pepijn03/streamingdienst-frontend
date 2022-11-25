@@ -1,15 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 
 const SearchBar = () => {
     const [searchInput, setSearchInput] = useState("")
 
     const[Films,setFilms]=useState([])
-
-    function getquery(){
-        return searchInput;
-    }
-
 
     useEffect(()=>{
         console.log(Films)
@@ -31,6 +26,10 @@ const SearchBar = () => {
         });
     }
 
+    function getquery(){
+        return searchInput;
+    }
+
     return(
         <div>
             <input
@@ -43,7 +42,7 @@ const SearchBar = () => {
 
             <datalist id={"filmlist"}>
                 {Films.map((film)=>(
-                    <option>{film.name} </option>
+                    <option key={film.id}>{film.name} </option>
                 ))}
             </datalist>
 

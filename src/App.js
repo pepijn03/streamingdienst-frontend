@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import ButtonAppBar from "./Components/GeneralComponents/AppBar";
-import Film from "./Components/Film";
-import Home from "./Components/Home";
-import SearchResult from "./Components/SearchResult"
+import Film from "./Pages/Film";
+import Home from "./Pages/Home";
+import SearchResult from "./Pages/SearchResult"
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
@@ -13,17 +13,20 @@ function App() {
         <ButtonAppBar/>
         <Film/>
     </div>*/
+    <div>
+        <Router>
+            <div className="App" >
+                <ButtonAppBar/>
+                <Routes>
+                    <Route exact path='/' element={<Home/>}/>
+                    <Route exact path='/watch/:id' element={<Film/>}/>
+                    <Route exact path='/search/:query' element={<SearchResult/>}/>
 
-    <Router>
-        <div className="App">
-            <ButtonAppBar/>
-            <Routes>
-                <Route exact path='/' element={<Home/>}/>
-                <Route exact path='/watch/:id' element={<Film/>}/>
-                <Route exact path='/search/:query' element={<SearchResult/>}/>
-            </Routes>
-        </div>
-    </Router>
+                </Routes>
+            </div>
+        </Router>
+    </div>
+
   );
 }
 
