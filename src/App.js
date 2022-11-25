@@ -13,17 +13,20 @@ function App() {
         <ButtonAppBar/>
         <Film/>
     </div>*/
+    <div>
+        <Router>
+            <div className="App" >
+                <ButtonAppBar/>
+                <Routes>
+                    <Route exact path='/' element={<Home/>}/>
+                    <Route exact path='/watch/:id' element={<Film/>}/>
+                    <Route exact path='/search/:query' element={<SearchResult/>}/>
 
-    <Router>
-        <div className="App">
-            <ButtonAppBar/>
-            <Routes>
-                <Route exact path='/' element={<Home/>}/>
-                <Route exact path='/watch/:id' element={<Film/>}/>
-                <Route exact path='/search/:query' element={<SearchResult/>}/>
-            </Routes>
-        </div>
-    </Router>
+                </Routes>
+            </div>
+        </Router>
+    </div>
+
   );
 }
 
