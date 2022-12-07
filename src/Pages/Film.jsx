@@ -31,7 +31,7 @@ export default function Film() {
                 {film.name}
             </Paper>
             <CommentInput filmId={film.id}/>
-            <CommentView  filmid={film.id}/>
+            <CommentView  comments={Comments}/>
 
         </Container>
 
