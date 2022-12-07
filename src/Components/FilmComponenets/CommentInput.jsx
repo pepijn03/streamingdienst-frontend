@@ -7,10 +7,11 @@ import Button from "@mui/material/Button";
 const CommentInput = (props) =>{
 
     const[text,setText]=useState("")
+    const [id]=useState(props.filmId)
 
     const handleClick=(e)=> {
         e.preventDefault()
-        const film = parseInt(props.filmId);
+        const film = {id};
         const comment = {text, film}
         console.log(comment)
         fetch("http://localhost:8080/comments/add",{
