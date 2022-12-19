@@ -2,8 +2,7 @@ import * as React from 'react';
 import {Container} from "@mui/material";
 
 import FilmOverview from "../Components/GeneralComponents/FilmOverview";
-import GenreFilter from "../Components/HomeComponents/GenreFilter";
-import {useEffect, useState, useCallback } from "react";
+import {useEffect, useState } from "react";
 
 
 export default function Home() {

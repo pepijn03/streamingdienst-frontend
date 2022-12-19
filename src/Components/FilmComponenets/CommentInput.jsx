@@ -7,11 +7,10 @@ import Button from "@mui/material/Button";
 const CommentInput = (props) =>{
 
     const[text,setText]=useState("")
-    const [id]=useState(props.filmId)
 
     const handleClick=(e)=> {
         e.preventDefault()
-        const film = {id};
+        const film = {id: props.filmId};
         const comment = {text, film}
         console.log(comment)
         fetch("http://localhost:8080/comments/add",{
@@ -27,7 +26,6 @@ const CommentInput = (props) =>{
     }
 
     const handleSubmit = event => {
-        console.log('handleSubmit ran');
         event.preventDefault(); // prevent page refresh
 
         // clear all input values in the form
