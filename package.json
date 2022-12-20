@@ -14,11 +14,15 @@
     "bootstrap": "^5.2.2",
     "eslint": "8.22.0",
     "material-ui-popup-state": "^4.1.0",
+    "net": "^1.0.2",
     "react": "^18.2.0",
+    "react-async": "^10.0.1",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "sockjs-client": "^1.6.1",
+    "stompjs": "^2.3.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

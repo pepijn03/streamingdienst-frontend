@@ -1,12 +1,23 @@
-
 import * as React from 'react';
 import {Container, Button} from "@mui/material";
-import {useState, memo } from "react";
+import {useState, memo, useEffect} from "react";
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
 
 const CommentView = (props) =>{
     const[liked,setLiked]=useState( false)
     const[disliked,setDisliked]=useState(false)
 
+    const StyledPaper = styled(Paper)(({ theme }) => ({
+        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+        ...theme.typography.body2,
+        padding: theme.spacing(2),
+        maxWidth: 400,
+        color: theme.palette.text.primary,
+    }));
 
     function updateComment(id, likes){
         let comment = {id, likes}
@@ -32,24 +43,41 @@ const CommentView = (props) =>{
         setLiked(false)
     }
 
-        return(
-            <Container>
-                <ul>
-                    {props.comments?.map((comment)=>(
-                        <li key={comment.id}>
-                            {comment.text}
-                            {comment.likes}
-                            <Button disabled={liked} onClick={() => like(comment.id, comment.likes)}> ︿ </Button>
-                            <Button disabled={disliked} onClick={() => dislike(comment.id, comment.likes)}> ﹀ </Button>
-                        </li>
-                        ))}
-                    <div >
+    //const { data, error, isPending } = useAsync({ promiseFn: loadComments, filmId: 1 })
 
-                    </div>
-                </ul>
+        return (
+            <div>
 
-            </Container>
-        );
+                <Container>
+                    <ul>
+                        {props.comments.map((comment)=>(
+                            <StyledPaper
+                                sx={{
+                                    my: 1,
+                                    mx: 'auto',
+                                    p: 2,
+                                }}
+                            >
+                            <Grid container wrap="nowrap" spacing={2} key={comment.id}>
+                                <Grid item>
+                                    <Avatar>W</Avatar>
+                                </Grid>
+                                <Grid item xs>
+                                    <Typography>{comment.text}</Typography>
+                                    <Typography>{comment.likes} <Button disabled={liked} onClick={() => like(comment.id, comment.likes)}> ︿ </Button> <Button disabled={disliked} onClick={() => dislike(comment.id, comment.likes)}> ﹀ </Button> </Typography>
+                                </Grid>
+                            </Grid>
+                            </StyledPaper>
+                            ))}
+                        <div >
+
+                        </div>
+                    </ul>
+
+                </Container>
+
+            </div>
+        )
 
 }
 

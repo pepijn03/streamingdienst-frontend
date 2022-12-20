@@ -10,7 +10,7 @@ const CommentInput = (props) =>{
 
     const handleClick= async (e) => {
         e.preventDefault()
-        const film = parseInt(props.filmId);
+        const film = {id: props.filmId};
         const comment = {text, film}
         console.log(comment)
 
@@ -27,7 +27,6 @@ const CommentInput = (props) =>{
     }
 
     const handleSubmit = event => {
-        console.log('handleSubmit ran');
         event.preventDefault(); // prevent page refresh
 
         // clear all input values in the form

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import ButtonAppBar from "./Components/GeneralComponents/AppBar";
 import Film from "./Pages/Film";
 import Home from "./Pages/Home";
@@ -9,10 +9,6 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 function App() {
   return (
 
-    /*<div className="App">
-        <ButtonAppBar/>
-        <Film/>
-    </div>*/
     <div>
         <Router>
             <div className="App" >

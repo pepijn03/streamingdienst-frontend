@@ -1,6 +1,6 @@
  import * as React from 'react';
 import {Container, Paper} from "@mui/material";
-import {Component, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Grid from "@mui/material/Grid";
 import { Link } from 'react-router-dom'
  import Button from "@mui/material/Button";
@@ -36,8 +36,6 @@ const FilmOverview= (props) => {
 
     };
 
-
-
     return (
 
             <Container>
@@ -61,15 +59,14 @@ const FilmOverview= (props) => {
 
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 6 }}>
                     {props.films.map((film)=>(
-                            <Grid item xs={3}>
-                                <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film.id}>
-                                    <Link to={`../watch/${film.id}`}>
-                                        id:{film.id}<br/>
-                                        film:{film.name}<br/>
-                                        length:{film.length}<br/>
-                                    </Link>
-                                </Paper>
-                            </Grid>
+                        <Grid item xs={3}>
+                            <Paper elevation={6} style={{margin:"10px", padding:"15px", textAlign:";left"}} key={film.id}>
+
+                                <div> <h2> {film.name} </h2></div> <br/>
+                                <div style={{textAlign: "left"}}> {film.length} min</div> <div style={{textAlign: "right"}}> {film.ageRestriction} </div> <br/>
+                                <Button style={{ margin:'5px', textDecoration: "none"}} variant="contained"><Link to={`../watch/${film.id}`} style={{textDecoration: "none", color: "white"}} > watch movie </Link></Button><br/>
+                            </Paper>
+                        </Grid>
                         )
                     )}
                 </Grid>
