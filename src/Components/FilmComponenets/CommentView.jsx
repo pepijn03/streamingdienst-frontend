@@ -64,7 +64,7 @@ const CommentView = (props) =>{
                                 </Grid>
                                 <Grid item xs>
                                     <Typography>{comment.text}</Typography>
-                                    <Typography>{comment.likes} <Button disabled={liked} onClick={() => like(comment.id, comment.likes)}> ︿ </Button> <Button disabled={disliked} onClick={() => dislike(comment.id, comment.likes)}> ﹀ </Button> </Typography>
+                                    <Typography> <Button style={{color: "red"}} disabled={disliked} onClick={() => dislike(comment.id, comment.likes)}> - </Button> {comment.likes} <Button style={{color: "green"}} disabled={liked} onClick={() => like(comment.id, comment.likes)}> + </Button> </Typography>
                                 </Grid>
                             </Grid>
                             </StyledPaper>
