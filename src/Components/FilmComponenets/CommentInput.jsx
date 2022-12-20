@@ -8,21 +8,22 @@ const CommentInput = (props) =>{
 
     const[text,setText]=useState("")
 
-    const handleClick=(e)=> {
+    const handleClick= async (e) => {
         e.preventDefault()
         const film = parseInt(props.filmId);
         const comment = {text, film}
         console.log(comment)
-        fetch("http://localhost:8080/comments/add",{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(comment)}
-        ).then(()=>{
-            console.log("new comment added")
-            console.log('handleSubmit ran')
+
+
+        props.comments = await fetch("http://localhost:8080/comments/add", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(comment)
+            }
+        ).then(() => {
             // clear all input values in the form
             setText('');
-        })
+        }).then(res => res.json())
     }
 
     const handleSubmit = event => {
