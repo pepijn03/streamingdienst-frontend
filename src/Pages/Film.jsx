@@ -3,7 +3,6 @@ import {Container, Paper} from "@mui/material";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import CommentInput from "../Components/FilmComponents/CommentInput";
-import CommentView from "../Components/FilmComponents/CommentView";
 
 
 export default function Film() {

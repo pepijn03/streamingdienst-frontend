@@ -1,9 +1,8 @@
 import * as React from 'react';
 import {Container, TextField} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import CommentView from ".//CommentView";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
@@ -15,7 +14,7 @@ const CommentInput = (props) =>{
     const[liked,setLiked]=useState( false)
     const[disliked,setDisliked]=useState(false)
     const[text,setText]=useState("")
-    const[Comments,setComments]=useState( props.comments)
+    const[setComments]=useState( props.comments)
 
     const StyledPaper = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',

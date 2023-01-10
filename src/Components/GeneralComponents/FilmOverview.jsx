@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom'
 
 const FilmOverview= (props) => {
     const[genres,setGenres]=useState( [])
-    const [filteredFilms, setFilteredFilms]=useState([])
 
 
     useEffect(()=>{
@@ -25,14 +24,6 @@ const FilmOverview= (props) => {
 
     const handleChange = (e) => {
         e.preventDefault();
-        if (e.target.value != null) {
-
-            setFilteredFilms(props.films.filter(film => film.genres.name.includes(e.target.value)))
-            Object.fromEntries(Object.entries(props.films).filter(([key]) => key.includes('Name')));
-        }
-        else{
-            setFilteredFilms(props.films)
-        }
 
     };
 

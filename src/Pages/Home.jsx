@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Container} from "@mui/material";
-
 import FilmOverview from "../Components/GeneralComponents/FilmOverview";
 import {useEffect, useState } from "react";
 
